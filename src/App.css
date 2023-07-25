@@ -21,10 +21,12 @@
 
 .headline {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
   margin-top: 20px;
   margin-bottom: 20px;
+  width: 800px;
+  position: relative;
 }
 
 .heart-img {
@@ -56,6 +58,7 @@ h1 {
   font-size: 55px;
   letter-spacing: 2px;
   color: #c329c2;
+  margin-left: 70px;
 }
 
 
@@ -72,47 +75,93 @@ h1 {
 .score-text {
   position: absolute;
   font-size: 55px;
-  top: 30%;
-  left: -20%;
+  top: 23%;
+  left: -30%;
   background: linear-gradient(#ffd405, #fda237);
   -webkit-text-fill-color: transparent;
   -webkit-background-clip: text;
   transition: all 1.2s ease-in-out;
-  z-index: 10
+  z-index: 10;
+  letter-spacing: 2px;
 }
 
 .score-slide {
   left: 25%;
-  top: 30%;
+  top: 23%;
 }
 
 .play-again-text {
   position: absolute;
   font-size: 55px;
-  top: 50%;
-  left: -40%;
+  top: 63%;
+  left: -42%;
   background: linear-gradient(#ffd405, #fda237);
   -webkit-text-fill-color: transparent;
   -webkit-background-clip: text;
   transition: all 1.2s ease-in-out;
-  z-index: 10
+  z-index: 10;
+  letter-spacing: 2px;
 } 
 
 .play-again-slide {
   left: 25%;
-  top: 50%;
+  top: 63%;
+
+}
+
+.best-time-text {
+  position: absolute;
+  font-size: 55px;
+  background: linear-gradient(#ffd405, #fda237);
+  -webkit-text-fill-color: transparent;
+  -webkit-background-clip: text;
+  transition: all 1.2s ease-in-out;
+  top: 43%;
+  left: -42%;
+  z-index: 10;
+  letter-spacing: 2px;
+
+}
+
+.best-time-slide {
+  left: 25%;
+  top: 43%;
 }
 
 .play-again-text span {
   margin-left: 20px;
+  letter-spacing: 2px;
 }
 
 .yes, .no {
     cursor: pointer;
-    transition: all 0.2s ease-in
+    transition: all 0.2s ease-in;
+    letter-spacing: 2px;
 }
 
 .yes:hover, .no:hover {
-  opacity: 0.5;
+  background: linear-gradient(#f8db4a, #f2a54d);
+  -webkit-text-fill-color: transparent;
+  -webkit-background-clip: text;
+}
+
+
+.watch {
+  font-family: "Grooven";
+  font-size: 48px;
+  margin-top: 3px;
+  letter-spacing: 1px;
+  color: #c329c2;
+  width: 160px;
+  position: absolute;
+  left: 2%;
+}
+
+.time {
+
+  font-family: "Grooven";
+  font-size: 49px;
+  letter-spacing: 1px;
+ 
 }
 

@@ -13,7 +13,9 @@ const [choiceOne, setChoiceOne] = useState(null)
 const [choiceTwo, setChoiceTwo] = useState(null)
 const [disabled, setDisabled] = useState(false)
 const [points, setPoints] = useState(0);
-
+const [time, setTime] = useState(0)
+const [timerOn, setTimerOn] = useState(false)
+const [bestTime, setBestTime] = useState(0)
 
 
 
@@ -24,6 +26,7 @@ const [points, setPoints] = useState(0);
 
   useEffect(() => {
    if (choiceOne && choiceTwo) {
+        
         setDisabled(true)
         if(choiceOne.name !== choiceTwo.name) {
           setTimeout(() => {
@@ -55,12 +58,28 @@ const [points, setPoints] = useState(0);
     }
   }, [choiceOne, choiceTwo])
 
+  useEffect(() => {
+    let interval = null;
+
+    if(timerOn) {
+      interval = setInterval(() => {
+          setTime(prevTime => prevTime + 10)
+      }, 10)
+    } else {
+        clearInterval(interval)
+    }
+
+    return () => clearInterval(interval)
+
+  }, [timerOn])
+
 
 const newGame = () => {
   FruitArray.sort(() => Math.random() - 0.5)
   FruitArray.sort(() => Math.random() - 0.5)
   FruitArray.sort(() => Math.random() - 0.5)
   setCards(FruitArray)
+
 }
 
 const chooseCard = (card) => {
@@ -75,7 +94,11 @@ const resetTurn = () => {
 
 const checkIfGameEnd = () => {
   if(points === 8) {
+    if (time < bestTime || bestTime === 0) {
+      setBestTime(time);
+    }
     new Audio(Applause).play()
+    setTimerOn(false)
   } else {
     return
   }
@@ -83,7 +106,7 @@ const checkIfGameEnd = () => {
 }
 
 const resetGame = () => {
-
+    setTime(0);
     setPoints(0);
     resetTurn()
     newGame()
@@ -92,14 +115,32 @@ const resetGame = () => {
 }
 
 
-
+console.log(bestTime)
 
   return (
     <>
-     <p className={points === 9 ? 'score-text score-slide' : 'score-text'}>Score: Xp</p>
+    <p  className={points === 9 ? 'best-time-text best-time-slide' : 'best-time-text'}>
+      Best time: 
+        <span className='time'> {("0" + Math.floor((bestTime / 60000) % 60)).slice(-2)}</span>
+        <span className='time'>:</span>
+        <span className='time'>{("0" + Math.floor((bestTime / 1000) % 60)).slice(-2)}</span>
+    </p>
+
+
+     <p className={points === 9 ? 'score-text score-slide' : 'score-text'}>
+      Time:      
+        <span className='time'> {("0" + Math.floor((time / 60000) % 60)).slice(-2)}</span>
+        <span className='time'>:</span>
+        <span className='time'>{("0" + Math.floor((time / 1000) % 60)).slice(-2)}</span>
+    </p>
      <p className={points === 9 ? 'play-again-text play-again-slide' : 'play-again-text'}>Play again? <span className='yes' onClick={resetGame}>Yes</span><span>/</span><span className='no'>No</span></p>
     <div className={points === 9 ? 'app dark' : 'app'}>        
         <div className='headline'>
+        <div className='watch'>
+        <span>{("0" + Math.floor((time / 60000) % 60)).slice(-2)}</span>
+        <span>:</span>
+        <span>{("0" + Math.floor((time / 1000) % 60)).slice(-2)}</span>
+      </div>
             <h1>Fruit Memory</h1>
             <img className='heart-img' src={Heart} alt="heart image" />
         </div>
@@ -113,7 +154,8 @@ const resetGame = () => {
           chooseCard={chooseCard}
           disabled={disabled}
           flipped={choiceOne === card || choiceTwo === card  || card.matched}
-      
+          setTimerOn={setTimerOn}
+          timerOn={timerOn}
           /> 
                  
         ))}

@@ -3,11 +3,14 @@ import Back from '../../assets/images/A_Panel_96x96.png'
 import { useState } from 'react'
 import clickSound from '../../assets/sound/memoryclick.wav'
 
-export const Fruitcard = ({card, chooseCard, disabled, flipped}) => {
+export const Fruitcard = ({card, chooseCard, disabled, flipped, timerOn, setTimerOn}) => {
 
 
 
     const clickedCard = ()=> {
+        if(timerOn === false) {
+                setTimerOn(true);
+        }
         if(disabled) return;
         new Audio(clickSound).play()
         chooseCard(card)
