@@ -13,10 +13,11 @@ const [cards, setCards] = useState([])
 const [choiceOne, setChoiceOne] = useState(null)
 const [choiceTwo, setChoiceTwo] = useState(null)
 const [disabled, setDisabled] = useState(false)
-const [points, setPoints] = useState(0);
+const [points, setPoints] = useState(9);
 const [time, setTime] = useState(0)
 const [timerOn, setTimerOn] = useState(false)
 const [bestTime, setBestTime] = useState(0)
+const [quit, setQuit] = useState(false)
 
 
 
@@ -86,9 +87,9 @@ const newGame = () => {
 
 const chooseCard = (card) => {
     if(choiceOne) {
-      if (choiceOne.id === card.id || card.matched) {
+       if (choiceOne.id === card.id || card.matched) {
         return
-      }
+      } 
    
       setChoiceTwo(card)
       
@@ -122,8 +123,12 @@ const resetGame = () => {
     setPoints(0);
     resetTurn()
     newGame()
+}
 
-
+const quitGame = () => {
+  setTime(0)
+  setPoints(0)
+  setQuit(true)
 }
 
 
@@ -131,6 +136,10 @@ const resetGame = () => {
 
   return (
     <>
+          <p className={quit === false ? 'thank-you' : 'thank-you slide-in'}>Thank you for playing!</p>
+         
+
+          {/* Best time text */}
     <p  className={points === 9 ? 'best-time-text best-time-slide' : 'best-time-text'}>
       Best time: 
         <span className='time'> {("0" + Math.floor((bestTime / 60000) % 60)).slice(-2)}</span>
@@ -138,16 +147,22 @@ const resetGame = () => {
         <span className='time'>{("0" + Math.floor((bestTime / 1000) % 60)).slice(-2)}</span>
     </p>
 
-
+          {/* Current time text */}
      <p className={points === 9 ? 'score-text score-slide' : 'score-text'}>
       Time:      
         <span className='time'> {("0" + Math.floor((time / 60000) % 60)).slice(-2)}</span>
         <span className='time'>:</span>
         <span className='time'>{("0" + Math.floor((time / 1000) % 60)).slice(-2)}</span>
     </p>
-     <p className={points === 9 ? 'play-again-text play-again-slide' : 'play-again-text'}>Play again? <span className='yes' onClick={resetGame}>Yes</span><span>/</span><span className='no'>No</span></p>
-    <div className={points === 9 ? 'app dark' : 'app'}>        
-        <div className='headline'>
+
+            {/* Play again text yes or no */}
+     <p className={points === 9 ? 'play-again-text play-again-slide' : 'play-again-text'}>Play again? 
+        <span className='yes' onClick={resetGame}>Yes</span>
+        <span>/</span><span className='no' onClick={quitGame}>No</span>
+      </p>
+
+    <div className={points === 9 || quit ? 'app dark' : 'app'}>        
+        <div className={quit ? 'headline quit-headline' : 'headline'}>
         <div className='watch'>
         <span>{("0" + Math.floor((time / 60000) % 60)).slice(-2)}</span>
         <span>:</span>
@@ -157,7 +172,7 @@ const resetGame = () => {
             <img className='heart-img' src={Heart} alt="heart image" />
         </div>
 
-        <div className='card-area'>
+        <div className={quit ? 'card-area quit-card-area' : 'card-area'}>
         {cards.map((card) => (
          
           <Fruitcard 

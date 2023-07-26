@@ -6,6 +6,7 @@
   justify-content: flex-start;
   align-items: center;
   transition: all 1.2s ease-in;
+  background-color: #1b1523;
 }
 
 .dark {
@@ -27,6 +28,7 @@
   margin-bottom: 20px;
   width: 800px;
   position: relative;
+  transition: all 0.5s ease-in-out
 }
 
 .heart-img {
@@ -70,6 +72,7 @@ h1 {
   flex-wrap: wrap;
   padding-left: 220px;
   padding-right: 220px;
+  transition: all 0.5s ease-in-out
 }
 
 .score-text {
@@ -106,7 +109,6 @@ h1 {
 .play-again-slide {
   left: 25%;
   top: 63%;
-
 }
 
 .best-time-text {
@@ -120,7 +122,6 @@ h1 {
   left: -42%;
   z-index: 10;
   letter-spacing: 2px;
-
 }
 
 .best-time-slide {
@@ -158,10 +159,113 @@ h1 {
 }
 
 .time {
-
   font-family: "Grooven";
   font-size: 49px;
   letter-spacing: 1px;
- 
+}
+
+.quit-headline, .quit-card-area {
+  opacity: 0;
+}
+
+.thank-you {
+  position: absolute;
+  font-family: "Glossy";
+  color: #00a600;
+  font-size: 52px;
+  left: 50%;
+  width: 600px;
+  margin-left: -300px;
+  top: 30%;
+  transition: all 2s ease-in-out;
+  opacity: 0;
+  z-index: 0;
+  letter-spacing: 2px;
+}
+
+.slide-in {
+  opacity: 1;
+}
+
+@media screen and (max-width: 376px) {
+  h1 {
+    font-size: 30px;
+    letter-spacing: 2px;
+    color: #c329c2;
+    margin-left: 70px;
+  }
+
+  .heart-img {
+    width: 42px;
+  }
+
+  .card-area {
+    width: 90%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    padding-left: 0px;
+    padding-right: 0px;
+    transition: all 0.5s ease-in-out;
+  }
+
+  .headline {
+    margin-top: 20px;
+    margin-bottom: 45px;
+    width: 400px; 
+  }
+
+  .watch {
+    font-size: 28px;
+    margin-top: 3px;
+    letter-spacing: 1px;
+    width: 100px;
+    position: absolute;
+    left: 50%;
+    margin-left: -50px;
+    top: 95%;
+  }
+
+  .best-time-text {
+    font-size: 25px;
+    top: 20%;
+    left: -75%;
+  }
+  
+  .best-time-slide {
+    left: 12%;
+    top: 20%;
+  }
+
+  .time {
+    font-family: "Grooven";
+    font-size: 22px;
+    letter-spacing: 1px;
+  }
+
+  .score-text {
+    font-size: 25px;
+    top: 15%;
+    left: -45%;
+  }
+  
+  .score-slide {
+    left: 12%;
+    top: 15%;
+  }
+
+  .play-again-text {
+    font-size: 25px;
+    top: 25%;
+    left: -82%;
+  } 
+  
+  .play-again-slide {
+    left: 12%;
+    top: 25%;
+  }
+
+
 }
 

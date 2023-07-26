@@ -26,3 +26,12 @@ html, body {
   background: #1b1523;
   color: #a63782;
 }
+
+@media screen and (max-width: 376px) {
+  html, body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}
+

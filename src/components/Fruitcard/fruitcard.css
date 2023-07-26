@@ -61,6 +61,23 @@
     transition-delay: 0.2s;
 } 
 
+@media screen and (max-width: 376px) {
+    .fruitcard {
+        width: 52px;
+        height: 55px;
+    }
+
+    .fruitcard .front, .back {  
+        width: 50px;
+        height: 60px;
+  }
+
+  .fruit-img {
+  
+   transform: scale(0.85);
+}
+}
+
 
 
 
