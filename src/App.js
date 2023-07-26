@@ -85,8 +85,17 @@ const newGame = () => {
 }
 
 const chooseCard = (card) => {
-    choiceOne ? setChoiceTwo(card) : setChoiceOne(card)
-}
+    if(choiceOne) {
+      if (choiceOne.id === card.id || card.matched) {
+        return
+      }
+   
+      setChoiceTwo(card)
+      
+    } else {
+      setChoiceOne(card)
+    }
+  }
 
 const resetTurn = () => {
   setDisabled(false)
@@ -117,7 +126,7 @@ const resetGame = () => {
 }
 
 
-console.log(bestTime)
+
 
   return (
     <>
