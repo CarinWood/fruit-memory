@@ -6,6 +6,7 @@ import { FruitArray } from './data/FruitArray'
 import Correct from './assets/sound/winning.wav'
 import Applause from './assets/sound/applause.wav'
 
+
 function App() {
 
 const [cards, setCards] = useState([])
@@ -21,12 +22,13 @@ const [bestTime, setBestTime] = useState(0)
 
 
   useEffect(() => {
+      
       newGame();
   }, [])
 
   useEffect(() => {
    if (choiceOne && choiceTwo) {
-        
+  
         setDisabled(true)
         if(choiceOne.name !== choiceTwo.name) {
           setTimeout(() => {
