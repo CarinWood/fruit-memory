@@ -93,6 +93,7 @@ const chooseCard = (card) => {
       setChoiceTwo(card)
       
     } else {
+      if(card.matched) return
       setChoiceOne(card)
     }
   }
