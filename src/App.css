@@ -196,6 +196,22 @@ h1 {
     margin-top: 20px;
   }
 
+  
+  .watch {
+    font-family: "Grooven";
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 48px;
+    margin-bottom: -53px;
+    letter-spacing: 1px;
+    color: #c329c2;
+    width: 160px;
+    position: unset;
+    left: 0;
+    bottom: -20%;
+  }
+
   .heart-img {
     width: 42px;
     margin-top: 20px;
