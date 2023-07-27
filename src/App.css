@@ -187,7 +187,7 @@ h1 {
   opacity: 1;
 }
 
-@media screen and (max-width: 376px) {
+@media screen and (max-width: 400px) {
   h1 {
     font-size: 30px;
     letter-spacing: 2px;
@@ -239,7 +239,6 @@ h1 {
   }
 
   .time {
-    font-family: "Grooven";
     font-size: 22px;
     letter-spacing: 1px;
   }
