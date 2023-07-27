@@ -1,7 +1,3 @@
-# tests
-# background music
-# What happens when player presses no
-# Documentation 
 
 # Memory game
 ## by Carin Wood

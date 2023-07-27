@@ -265,6 +265,22 @@ h1 {
     top: 25%;
   }
 
+  .thank-you {
+    font-size: 22px;
+    left: 50%;
+    width: 400px;
+    margin-left: -200px;
+    top: 30%;
+    transition: all 2s ease-in-out;
+    opacity: 0;
+    z-index: 0;
+    letter-spacing: 2px;
+  }
+
+  .slide-in {
+    opacity: 1;
+  }
+
 
 }
 
