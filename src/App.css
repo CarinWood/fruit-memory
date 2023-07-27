@@ -189,18 +189,20 @@ h1 {
 
 @media screen and (max-width: 400px) {
   h1 {
-    font-size: 30px;
+    font-size: 35px;
     letter-spacing: 2px;
     color: #c329c2;
-    margin-left: 70px;
+    margin-left: 0px;
+    margin-top: 20px;
   }
 
   .heart-img {
     width: 42px;
+    margin-top: 20px;
   }
 
   .card-area {
-    width: 90%;
+    width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -208,6 +210,7 @@ h1 {
     padding-left: 0px;
     padding-right: 0px;
     transition: all 0.5s ease-in-out;
+    margin-top: 40px;
   }
 
   .headline {

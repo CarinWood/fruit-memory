@@ -63,13 +63,13 @@
 
 @media screen and (max-width: 400px) {
     .fruitcard {
-        width: 52px;
-        height: 55px;
+        width: 57px;
+        height: 60px;
     }
 
     .fruitcard .front, .back {  
-        width: 50px;
-        height: 60px;
+        width: 55px;
+        height: 65px;
   }
 
   .fruit-img {
